@@ -14,10 +14,27 @@ export default function HomePage() {
   const { t, dir } = useLanguage();
   useScrollReveal();
 
-  useEffect(() => {
-    api.get('/products?featured=true&limit=8').then(r => setFeatured(r.data.data));
-    api.get('/categories').then(r => setCategories(r.data.data));
-  }, []);
+useEffect(() => {
+  api.get('/products?featured=true&limit=8')
+    .then(r => {
+      console.log('PRODUCTS RESPONSE', r.data);
+      setFeatured(r?.data?.data ?? []);
+    })
+    .catch(err => {
+      console.error(err);
+      setFeatured([]);
+    });
+
+  api.get('/categories')
+    .then(r => {
+      console.log('CATEGORIES RESPONSE', r.data);
+      setCategories(r?.data?.data ?? []);
+    })
+    .catch(err => {
+      console.error(err);
+      setCategories([]);
+    });
+}, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
