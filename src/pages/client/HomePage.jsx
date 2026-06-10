@@ -30,7 +30,10 @@ export default function HomePage() {
     { icon: TruckIcon, label: t('shippingStat'), color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/40' },
     { icon: ShieldCheckIcon, label: t('suppliersStat'), color: 'text-accent-500 dark:text-accent-400', bg: 'bg-orange-50 dark:bg-orange-950/40' },
   ];
-
+      console.log('featured', featured);
+      console.log('categories', categories);
+      console.log('dir', dir);
+      console.log('t', typeof t);
   return (
     <div className="animate-fade-in">
       {/* Hero */}
