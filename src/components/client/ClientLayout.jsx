@@ -36,11 +36,11 @@ export default function ClientLayout() {
       <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm dark:bg-dark-800 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center h-16 gap-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-9 h-9 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center shadow-glow">
-              <BuildingStorefrontIcon className="w-5 h-5 text-white" />
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center shadow-glow">
+              <BuildingStorefrontIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
             </div>
-            <span className="font-display font-bold text-xl text-gray-900 dark:text-white">Wholesale<span className="text-primary-600">Hub</span></span>
+            <span className="font-display font-bold text-base sm:text-xl text-gray-900 dark:text-white">Crea<span className="text-primary-600">Carte</span></span>
           </Link>
 
           {/* Search */}
@@ -61,19 +61,20 @@ export default function ClientLayout() {
           </nav>
 
           {/* Right icons */}
-          <div className="flex items-center gap-2 ms-auto">
+          <div className="flex items-center gap-1.5 sm:gap-2 ms-auto">
             {/* Language Selector */}
             <button
               onClick={() => setLanguage(language === 'fr' ? 'ar' : 'fr')}
-              className="px-3 py-1.5 rounded-xl border border-gray-200 text-xs font-bold text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-all flex items-center gap-1.5 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-primary-400"
+              className="px-2 sm:px-3 py-1.5 rounded-xl border border-gray-200 text-xs font-bold text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-all flex items-center gap-1 sm:gap-1.5 dark:border-white/10 dark:text-gray-350 dark:hover:bg-white/5 dark:hover:text-primary-400"
               aria-label="Change Language"
             >
               <GlobeAltIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              <span>{language === 'fr' ? 'العربية' : 'Français'}</span>
+              <span className="hidden sm:inline">{language === 'fr' ? 'العربية' : 'Français'}</span>
+              <span className="inline sm:hidden">{language === 'fr' ? 'AR' : 'FR'}</span>
             </button>
 
             {/* Theme Toggle */}
-            <button onClick={toggleTheme} className="p-2 rounded-xl text-gray-600 hover:text-primary-600 hover:bg-gray-50 transition-colors dark:text-gray-300 dark:hover:text-primary-400 dark:hover:bg-white/5" aria-label="Toggle Theme">
+            <button onClick={toggleTheme} className="hidden sm:flex p-2 rounded-xl text-gray-600 hover:text-primary-600 hover:bg-gray-50 transition-colors dark:text-gray-300 dark:hover:text-primary-400 dark:hover:bg-white/5" aria-label="Toggle Theme">
               {darkMode ? <SunIcon className="w-6 h-6 text-amber-500" /> : <MoonIcon className="w-6 h-6" />}
             </button>
 
@@ -84,7 +85,7 @@ export default function ClientLayout() {
 
             {user ? (
               <div className="relative">
-                <button onClick={() => setUserMenuOpen(v => !v)} className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors dark:text-gray-300 dark:hover:bg-white/5">
+                <button onClick={() => setUserMenuOpen(v => !v)} className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-2 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors dark:text-gray-300 dark:hover:bg-white/5">
                   <div className="w-7 h-7 rounded-lg bg-primary-100 flex items-center justify-center text-primary-700 font-bold text-xs dark:bg-primary-950 dark:text-primary-400">
                     {user.fullName?.[0]?.toUpperCase()}
                   </div>
@@ -95,15 +96,18 @@ export default function ClientLayout() {
                     {user.role === 'admin' && <Link to="/admin" className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 dark:text-gray-200 dark:hover:bg-white/5" onClick={() => setUserMenuOpen(false)}>🛠️ {t('adminPanel')}</Link>}
                     <Link to="/account" className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 dark:text-gray-200 dark:hover:bg-white/5" onClick={() => setUserMenuOpen(false)}>👤 {t('myAccount')}</Link>
                     <hr className="my-1 border-gray-100 dark:border-white/5" />
-                    <button onClick={() => { logout(); setUserMenuOpen(false); navigate('/'); }} className="w-full text-left flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30">🚪 {t('signOut')}</button>
+                    <button onClick={() => { logout(); setUserMenuOpen(false); navigate('/'); }} className="w-full text-left flex items-center gap-2 px-4 py-2.5 text-sm text-red-650 hover:bg-red-50 dark:hover:bg-red-950/30">🚪 {t('signOut')}</button>
                   </div>
                 )}
               </div>
             ) : (
-              <Link to="/login" className="btn-primary py-2 px-4 text-sm font-bold">{t('signIn')}</Link>
+              <Link to="/login" className="btn-primary py-1.5 px-2.5 sm:px-4 text-xs sm:text-sm font-bold flex items-center gap-1" aria-label="Sign In">
+                <UserIcon className="w-4 h-4 sm:hidden" />
+                <span className="hidden sm:inline">{t('signIn')}</span>
+              </Link>
             )}
 
-            <button onClick={() => setMobileOpen(v => !v)} className="md:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5">
+            <button onClick={() => setMobileOpen(v => !v)} className="md:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-150 dark:text-gray-300 dark:hover:bg-white/5">
               {mobileOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
             </button>
           </div>
@@ -147,7 +151,7 @@ export default function ClientLayout() {
               <div className="w-8 h-8 bg-primary-600 rounded-xl flex items-center justify-center">
                 <BuildingStorefrontIcon className="w-4 h-4 text-white" />
               </div>
-              <span className="font-display font-bold text-white text-lg">WholesaleHub</span>
+              <span className="font-display font-bold text-white text-lg">CreaCarte</span>
             </div>
             <p className="text-sm leading-relaxed">{t('descText')}</p>
             
@@ -193,7 +197,7 @@ export default function ClientLayout() {
           </div>
         </div>
         <div className="border-t border-white/10 py-4 text-center text-xs text-gray-600">
-          © 2026 WholesaleHub. {t('rightsReserved')}
+          © 2026 CreaCarte. {t('rightsReserved')}
         </div>
       </footer>
     </div>

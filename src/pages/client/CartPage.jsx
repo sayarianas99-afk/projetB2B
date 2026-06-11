@@ -51,8 +51,8 @@ export default function CartPage() {
                     </span>
                   )}
                 </div>
-                <div className="flex items-center justify-between mt-2.5">
-                  <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden dark:border-white/10">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-3">
+                  <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden dark:border-white/10 w-fit">
                     <button onClick={() => updateQuantity(item.productId, item.quantity - 1)}
                       className="p-1.5 hover:bg-gray-50 dark:hover:bg-white/5">
                       <MinusIcon className="w-3.5 h-3.5 text-gray-600 dark:text-gray-300" />
@@ -65,7 +65,7 @@ export default function CartPage() {
                       <PlusIcon className="w-3.5 h-3.5 text-gray-600 dark:text-gray-300" />
                     </button>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
                     <span className="font-bold text-gray-900 dark:text-white">${(item.price * item.quantity).toFixed(2)}</span>
                     <button onClick={() => removeItem(item.productId)}
                       className="p-1.5 rounded-lg text-red-400 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/20 transition-colors">

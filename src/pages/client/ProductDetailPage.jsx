@@ -85,16 +85,16 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Pricing */}
-          <div className="card p-5 bg-gradient-to-br from-primary-50 to-white dark:from-primary-950/30 dark:to-dark-800 dark:border-white/5">
-            <div className="grid grid-cols-2 gap-4">
-              <div className={`p-3 rounded-xl border-2 transition-all ${!isWholesale ? 'border-primary-500 bg-white shadow-sm dark:bg-dark-700' : 'border-gray-200 dark:border-white/10'}`}>
+          <div className="card p-4 sm:p-5 bg-gradient-to-br from-primary-50 to-white dark:from-primary-950/30 dark:to-dark-800 dark:border-white/5">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className={`p-2.5 sm:p-3 rounded-xl border-2 transition-all ${!isWholesale ? 'border-primary-500 bg-white shadow-sm dark:bg-dark-700' : 'border-gray-200 dark:border-white/10'}`}>
                 <div className="text-xs text-gray-500 font-medium mb-1 dark:text-gray-400">{t('unitPrice')}</div>
-                <div className="font-display text-xl font-bold text-gray-900 dark:text-white">${parseFloat(product.unitPrice).toFixed(2)}</div>
+                <div className="font-display text-base sm:text-xl font-bold text-gray-900 dark:text-white">${parseFloat(product.unitPrice).toFixed(2)}</div>
                 <div className="text-xs text-gray-400">{t('unit')}</div>
               </div>
-              <div className={`p-3 rounded-xl border-2 transition-all ${isWholesale ? 'border-accent-400 bg-white shadow-sm dark:bg-dark-700' : 'border-gray-200 dark:border-white/10'}`}>
+              <div className={`p-2.5 sm:p-3 rounded-xl border-2 transition-all ${isWholesale ? 'border-accent-400 bg-white shadow-sm dark:bg-dark-700' : 'border-gray-200 dark:border-white/10'}`}>
                 <div className="text-xs text-accent-500 font-semibold mb-1">🔥 {t('wholesalePrice')}</div>
-                <div className="font-display text-xl font-bold text-accent-600 dark:text-accent-400">${parseFloat(product.wholesalePrice).toFixed(2)}</div>
+                <div className="font-display text-base sm:text-xl font-bold text-accent-600 dark:text-accent-400">${parseFloat(product.wholesalePrice).toFixed(2)}</div>
                 <div className="text-xs text-gray-400">{product.wholesaleMinQty}+ {t('unit')}</div>
               </div>
             </div>
@@ -116,8 +116,8 @@ export default function ProductDetailPage() {
           {/* Quantity */}
           <div>
             <label className="label">{t('quantity')}</label>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center border border-gray-200 rounded-xl overflow-hidden dark:border-white/10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <div className="flex items-center border border-gray-200 rounded-xl overflow-hidden dark:border-white/10 w-fit">
                 <button onClick={() => setQty(q => Math.max(1, q - 1))} className="p-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                   <MinusIcon className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                 </button>

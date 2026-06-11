@@ -36,7 +36,7 @@ export default function RegisterPage() {
           <div className="w-8 h-8 bg-primary-600 rounded-xl flex items-center justify-center">
             <BuildingStorefrontIcon className="w-4 h-4 text-white" />
           </div>
-          <span className="font-display font-bold text-xl">WholesaleHub</span>
+          <span className="font-display font-bold text-xl">CreaCarte</span>
         </div>
         <h2 className="font-display text-2xl font-bold text-gray-900 mb-1">{t('registerTitle')}</h2>
         <p className="text-gray-500 text-sm mb-6">{t('registerSubtitle')}</p>

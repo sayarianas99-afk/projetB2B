@@ -17,12 +17,12 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <Link to={`/products/${product.id}`} className="card-hover group block dark:bg-dark-800 dark:border-white/5">
+    <Link to={`/products/${product.id}`} className="card-hover group flex flex-col h-full dark:bg-dark-800 dark:border-white/5">
       {/* Image */}
-      <div className="relative overflow-hidden bg-gray-100 dark:bg-dark-700 aspect-square">
+      <div className="relative overflow-hidden bg-gray-100 dark:bg-dark-700 aspect-square flex-shrink-0">
         <img
           src={image} alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="product-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           onError={e => { e.target.src = `https://picsum.photos/seed/${product.id + 100}/400/400`; }}
         />
         {product.isFeatured && (
@@ -54,25 +54,29 @@ export default function ProductCard({ product }) {
       </div>
 
       {/* Info */}
-      <div className="p-4 text-start">
-        <div className="flex items-center gap-1.5 mb-1.5">
-          <TagIcon className="w-3 h-3 text-gray-400" />
-          <span className="text-xs text-gray-400 font-medium truncate">{product.category?.name}</span>
-        </div>
-        <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 line-clamp-2 leading-snug group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{product.name}</h3>
-        <div className="flex items-end justify-between gap-2">
-          <div>
-            <div className="text-xs text-gray-400 mb-0.5">{t('unitPrice')}</div>
-            <div className="font-bold text-gray-900 dark:text-white">${parseFloat(product.unitPrice).toFixed(2)}</div>
+      <div className="p-4 text-start flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <TagIcon className="w-3 h-3 text-gray-400" />
+            <span className="text-xs text-gray-400 font-medium truncate">{product.category?.name}</span>
           </div>
-          <div className="text-end">
-            <div className="text-xs text-accent-500 font-medium mb-0.5">{product.wholesaleMinQty}+ {t('unit')}</div>
-            <div className="font-bold text-accent-500">${parseFloat(product.wholesalePrice).toFixed(2)}</div>
-          </div>
+          <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 line-clamp-2 leading-snug group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{product.name}</h3>
         </div>
-        <div className="mt-3 pt-2.5 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
-          <span className="text-xs text-gray-400">{t('stock')} <span className={`font-semibold ${product.stock > 100 ? 'text-green-600' : product.stock > 10 ? 'text-yellow-600' : 'text-red-600'}`}>{product.stock.toLocaleString()}</span></span>
-          <span className="text-xs text-gray-450 dark:text-gray-400">{t('sku')} {product.sku}</span>
+        <div>
+          <div className="flex items-end justify-between gap-2">
+            <div>
+              <div className="text-xs text-gray-400 mb-0.5">{t('unitPrice')}</div>
+              <div className="font-bold text-gray-900 dark:text-white">${parseFloat(product.unitPrice).toFixed(2)}</div>
+            </div>
+            <div className="text-end">
+              <div className="text-xs text-accent-500 font-medium mb-0.5">{product.wholesaleMinQty}+ {t('unit')}</div>
+              <div className="font-bold text-accent-500">${parseFloat(product.wholesalePrice).toFixed(2)}</div>
+            </div>
+          </div>
+          <div className="mt-3 pt-2.5 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
+            <span className="text-xs text-gray-400">{t('stock')} <span className={`font-semibold ${product.stock > 100 ? 'text-green-600' : product.stock > 10 ? 'text-yellow-600' : 'text-red-600'}`}>{product.stock.toLocaleString()}</span></span>
+            <span className="text-xs text-gray-450 dark:text-gray-400">{t('sku')} {product.sku}</span>
+          </div>
         </div>
       </div>
     </Link>

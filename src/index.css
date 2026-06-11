@@ -9,6 +9,7 @@
   body {
     @apply font-sans bg-gray-50 text-gray-900 antialiased;
     font-size: 15px;
+    overflow-x: hidden;
   }
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { @apply bg-gray-100; }
@@ -236,4 +237,12 @@
 :focus-visible {
   outline: 2px solid theme('colors.primary.500');
   outline-offset: 2px;
+}
+
+/* Product image standard uniform aspect-ratio and styling */
+.product-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
 }
