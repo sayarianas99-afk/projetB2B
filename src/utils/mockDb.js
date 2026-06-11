@@ -1,11 +1,11 @@
 // Client-side JSON database using localStorage
-const STORAGE_PREFIX = 'wholesale_b2b_';
+const STORAGE_PREFIX = 'creacarte_b2b_';
 
 const defaultUsers = [
   {
     id: 'user-admin',
     fullName: 'Admin User',
-    email: 'admin@wholesale.com',
+    email: 'admin@creacarte.com',
     password: 'Admin@123',
     phone: '+1-555-0100',
     address: '123 Admin Street, New York, NY 10001',
@@ -15,7 +15,7 @@ const defaultUsers = [
   {
     id: 'user-client',
     fullName: 'John Smith',
-    email: 'client@wholesale.com',
+    email: 'client@creacarte.com',
     password: 'Client@123',
     phone: '+1-555-0200',
     address: '456 Business Ave, Los Angeles, CA 90210',
@@ -25,152 +25,150 @@ const defaultUsers = [
 ];
 
 const defaultCategories = [
-  { id: 'cat-1', name: 'Electronics', slug: 'electronics', description: 'Electronic components and devices', icon: '⚡', isActive: true },
-  { id: 'cat-2', name: 'Textiles', slug: 'textiles', description: 'Fabrics and clothing materials', icon: '🧵', isActive: true },
-  { id: 'cat-3', name: 'Industrial Tools', slug: 'industrial-tools', description: 'Professional tools and equipment', icon: '🔧', isActive: true },
-  { id: 'cat-4', name: 'Food & Beverages', slug: 'food-beverages', description: 'Wholesale food products', icon: '🍎', isActive: true },
-  { id: 'cat-5', name: 'Packaging', slug: 'packaging', description: 'Packaging materials and solutions', icon: '📦', isActive: true },
-  { id: 'cat-6', name: 'Office Supplies', slug: 'office-supplies', description: 'Office and stationery products', icon: '📎', isActive: true },
+  { id: 'cat-1', name: 'Mariage', slug: 'mariage', description: 'Cartes d\'invitation mariage, fiançailles, Save the Date, menus, remerciements...', icon: '💍', isActive: true },
+  { id: 'cat-2', name: 'Études & Université', slug: 'etudes-universite', description: 'Cartes de soutenance, invitations de soutenance, diplômes, certificats...', icon: '🎓', isActive: true },
+  { id: 'cat-3', name: 'Professionnel', slug: 'professionnel', description: 'Cartes de visite, badges professionnels, certificats d\'appréciation...', icon: '🏢', isActive: true },
+  { id: 'cat-4', name: 'Événements', slug: 'evenements', description: 'Invitations de congrès, séminaires, anniversaire, conférences...', icon: '🎉', isActive: true },
+  { id: 'cat-5', name: 'Événements religieux', slug: 'evenements-religieux', description: 'Cartes de circoncision, Omra/Hajj, félicitations...', icon: '🕌', isActive: true },
+  { id: 'cat-6', name: 'Remerciements', slug: 'remerciements', description: 'Cartes pour enseignants, félicitations, remerciement...', icon: '👨‍🏫', isActive: true },
+  { id: 'cat-7', name: 'Personnalisation', slug: 'personnalisation', description: 'Créer ma carte, importer mon design, design sur mesure...', icon: '🎨', isActive: true },
 ];
 
 const defaultProducts = [
   {
     id: 'prod-1',
-    name: 'Industrial LED Strip Light 5m',
-    slug: 'industrial-led-strip-5m',
-    description: 'High-quality SMD LED strip lights for commercial and industrial use. IP65 waterproof rating, 60 LEDs per meter, available in warm white and cool white.',
-    unitPrice: 12.99,
-    wholesalePrice: 9.99,
+    name: 'Cartes d\'invitation Mariage Premium',
+    slug: 'invitation-mariage-premium',
+    description: 'Cartes d\'invitation mariage élégantes sur papier texturé avec dorure à chaud dorée ou argentée. Enveloppes incluses.',
+    unitPrice: 2.50,
+    wholesalePrice: 1.50,
     wholesaleMinQty: 100,
     stock: 5000,
     categoryId: 'cat-1',
-    sku: 'LED-001',
+    sku: 'MAR-001',
     isFeatured: true,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/LED-001-1/600/600', isPrimary: true, sortOrder: 0 },
-      { imageUrl: 'https://picsum.photos/seed/LED-001-2/600/600', isPrimary: false, sortOrder: 1 },
-      { imageUrl: 'https://picsum.photos/seed/LED-001-3/600/600', isPrimary: false, sortOrder: 2 }
+      { imageUrl: 'https://picsum.photos/seed/MAR-001-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   },
   {
     id: 'prod-2',
-    name: 'Premium Cotton T-Shirt Blank',
-    slug: 'premium-cotton-tshirt-blank',
-    description: '100% organic cotton blank t-shirts for customization. Pre-shrunk, seamless collar, available in 15 colors. Perfect for bulk orders.',
-    unitPrice: 4.50,
-    wholesalePrice: 2.99,
+    name: 'Save the Date Rustique',
+    slug: 'save-the-date-rustique',
+    description: 'Cartes d\'annonce Save the Date avec style kraft rustique et dentelle imprimée, parfaites pour annoncer votre mariage.',
+    unitPrice: 1.80,
+    wholesalePrice: 1.10,
     wholesaleMinQty: 100,
-    stock: 20000,
-    categoryId: 'cat-2',
-    sku: 'TXT-001',
+    stock: 8000,
+    categoryId: 'cat-1',
+    sku: 'MAR-002',
     isFeatured: true,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/TXT-001-1/600/600', isPrimary: true, sortOrder: 0 },
-      { imageUrl: 'https://picsum.photos/seed/TXT-001-2/600/600', isPrimary: false, sortOrder: 1 }
+      { imageUrl: 'https://picsum.photos/seed/MAR-002-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   },
   {
     id: 'prod-3',
-    name: 'Heavy Duty Power Drill 800W',
-    slug: 'heavy-duty-power-drill-800w',
-    description: 'Professional grade power drill with 800W motor, variable speed control, 13mm chuck capacity. Suitable for wood, metal, and masonry.',
-    unitPrice: 89.99,
-    wholesalePrice: 69.99,
+    name: 'Diplôme Universitaire Cartonné',
+    slug: 'diplome-universitaire-cartonne',
+    description: 'Diplômes personnalisés sur papier parchemin rigide 300g avec lettrage gothique et emplacement pour sceau en cire.',
+    unitPrice: 5.00,
+    wholesalePrice: 3.50,
     wholesaleMinQty: 50,
-    stock: 300,
-    categoryId: 'cat-3',
-    sku: 'TLS-001',
-    isFeatured: false,
+    stock: 2000,
+    categoryId: 'cat-2',
+    sku: 'UNI-001',
+    isFeatured: true,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/TLS-001-1/600/600', isPrimary: true, sortOrder: 0 }
+      { imageUrl: 'https://picsum.photos/seed/UNI-001-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   },
   {
     id: 'prod-4',
-    name: 'Organic Green Tea 250g',
-    slug: 'organic-green-tea-250g',
-    description: 'Premium Chinese organic green tea, certified by EU organic standards. Rich in antioxidants, packed in resealable pouches.',
-    unitPrice: 8.99,
-    wholesalePrice: 6.49,
-    wholesaleMinQty: 100,
-    stock: 10000,
-    categoryId: 'cat-4',
-    sku: 'FDB-001',
+    name: 'Cartes de Visite Soft Touch',
+    slug: 'cartes-de-visite-soft-touch',
+    description: 'Cartes de visite professionnelles haut de gamme avec pelliculage mat soft touch (effet peau de pêche) 350g, impression recto/verso.',
+    unitPrice: 0.15,
+    wholesalePrice: 0.08,
+    wholesaleMinQty: 500,
+    stock: 100000,
+    categoryId: 'cat-3',
+    sku: 'PRO-001',
     isFeatured: true,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/FDB-001-1/600/600', isPrimary: true, sortOrder: 0 }
+      { imageUrl: 'https://picsum.photos/seed/PRO-001-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   },
   {
     id: 'prod-5',
-    name: 'Kraft Paper Bags 26x35cm',
-    slug: 'kraft-paper-bags-26x35',
-    description: 'Eco-friendly kraft paper shopping bags with handles. 120gsm thickness, suitable for retail and food packaging. Customizable printing available.',
-    unitPrice: 0.45,
-    wholesalePrice: 0.29,
-    wholesaleMinQty: 500,
-    stock: 100000,
-    categoryId: 'cat-5',
-    sku: 'PKG-001',
+    name: 'Badges Professionnels Magnétiques',
+    slug: 'badges-professionnels-magnetiques',
+    description: 'Badges nominatifs en acrylique avec fixation magnétique ultra-forte, personnalisables avec votre logo et nom d\'entreprise.',
+    unitPrice: 4.50,
+    wholesalePrice: 2.99,
+    wholesaleMinQty: 50,
+    stock: 5000,
+    categoryId: 'cat-3',
+    sku: 'PRO-002',
     isFeatured: false,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/PKG-001-1/600/600', isPrimary: true, sortOrder: 0 }
+      { imageUrl: 'https://picsum.photos/seed/PRO-002-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   },
   {
     id: 'prod-6',
-    name: 'A4 Copy Paper 80gsm Ream',
-    slug: 'a4-copy-paper-80gsm',
-    description: 'High-quality A4 copy paper for laser and inkjet printers. 80gsm weight, 500 sheets per ream, brightness 102%. Acid-free for archival quality.',
-    unitPrice: 6.99,
-    wholesalePrice: 4.99,
-    wholesaleMinQty: 100,
-    stock: 50000,
-    categoryId: 'cat-6',
-    sku: 'OFC-001',
+    name: 'Invitations de Congrès & Séminaires',
+    slug: 'invitation-congres-seminaires',
+    description: 'Cartes d\'invitation officielles pour événements professionnels, conférences et séminaires d\'entreprise sur papier glacé.',
+    unitPrice: 1.20,
+    wholesalePrice: 0.75,
+    wholesaleMinQty: 200,
+    stock: 12000,
+    categoryId: 'cat-4',
+    sku: 'EVE-001',
     isFeatured: true,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/OFC-001-1/600/600', isPrimary: true, sortOrder: 0 }
+      { imageUrl: 'https://picsum.photos/seed/EVE-001-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   },
   {
     id: 'prod-7',
-    name: 'Wireless Bluetooth Earbuds',
-    slug: 'wireless-bluetooth-earbuds',
-    description: 'True wireless stereo earbuds with active noise cancellation. 30-hour battery life with charging case, IPX5 water resistant, Bluetooth 5.2.',
-    unitPrice: 24.99,
-    wholesalePrice: 18.99,
+    name: 'Cartes de Circoncision Traditionnelles',
+    slug: 'cartes-circoncision-traditionnelles',
+    description: 'Cartes d\'invitation dorées pour cérémonie de circoncision avec motifs arabesques traditionnels raffinés.',
+    unitPrice: 1.50,
+    wholesalePrice: 0.99,
     wholesaleMinQty: 100,
-    stock: 2000,
-    categoryId: 'cat-1',
-    sku: 'LED-002',
+    stock: 6000,
+    categoryId: 'cat-5',
+    sku: 'REL-001',
     isFeatured: true,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/LED-002-1/600/600', isPrimary: true, sortOrder: 0 }
+      { imageUrl: 'https://picsum.photos/seed/REL-001-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   },
   {
     id: 'prod-8',
-    name: 'Polyester Fleece Fabric Roll',
-    slug: 'polyester-fleece-fabric-roll',
-    description: 'Soft anti-pill polyester fleece fabric, 150cm width, 200gsm weight. Available in 30+ colors, sold per meter or full rolls of 50m.',
-    unitPrice: 3.20,
-    wholesalePrice: 2.10,
-    wholesaleMinQty: 100,
-    stock: 8000,
-    categoryId: 'cat-2',
-    sku: 'TXT-002',
+    name: 'Cartes pour Enseignants & Remerciement',
+    slug: 'cartes-enseignants-remerciement',
+    description: 'Jolies cartes de remerciement pliées avec enveloppe pour exprimer votre gratitude aux enseignants, tuteurs et mentors.',
+    unitPrice: 1.99,
+    wholesalePrice: 1.20,
+    wholesaleMinQty: 50,
+    stock: 4000,
+    categoryId: 'cat-6',
+    sku: 'REM-001',
     isFeatured: false,
     isActive: true,
     images: [
-      { imageUrl: 'https://picsum.photos/seed/TXT-002-1/600/600', isPrimary: true, sortOrder: 0 }
+      { imageUrl: 'https://picsum.photos/seed/REM-001-1/600/600', isPrimary: true, sortOrder: 0 }
     ]
   }
 ];

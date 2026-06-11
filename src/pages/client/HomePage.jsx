@@ -54,31 +54,46 @@ useEffect(() => {
   return (
     <div className="animate-fade-in">
       {/* Hero */}
-      <section className="hero-gradient hero-mesh min-h-[460px] sm:min-h-[520px] flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-dark-900 dark:to-dark-850 min-h-[460px] sm:min-h-[520px] flex items-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-10 right-10 w-64 h-64 rounded-full bg-primary-400 blur-3xl animate-float" />
           <div className="absolute bottom-10 left-20 w-48 h-48 rounded-full bg-accent-400 blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 relative z-10 w-full">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 text-primary-200 text-sm font-medium mb-4 backdrop-blur-sm border border-white/20">
-              {t('trustedBy')}
-            </span>
-            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-              {t('heroTitle1')}<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-accent-400">{t('heroTitle2')}</span>
-            </h1>
-            <p className="text-primary-200 text-base sm:text-lg mb-8 leading-relaxed">
-              {t('heroDesc')}
-            </p>
-            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 max-w-xl w-full">
-              <div className="relative w-full">
-                <MagnifyingGlassIcon className={`absolute ${dir === 'rtl' ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400`} />
-                <input value={search} onChange={e => setSearch(e.target.value)} placeholder={t('searchPlaceholder')}
-                  className={`w-full ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3.5 rounded-2xl bg-white text-gray-900 placeholder-gray-400 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 shadow-lg`} />
+          <div className="flex flex-col lg:flex-row items-center gap-10">
+            {/* Left Column */}
+            <div className="w-full lg:w-1/2 text-start">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 text-primary-700 text-sm font-medium mb-4 border border-primary-100 dark:bg-white/10 dark:text-primary-200 dark:border-white/20">
+                {t('trustedBy')}
+              </span>
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+                {t('heroTitle1')}<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500 dark:from-primary-300 dark:to-accent-400">{t('heroTitle2')}</span>
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+                {t('heroDesc')}
+              </p>
+              <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 max-w-xl w-full">
+                <div className="relative w-full">
+                  <MagnifyingGlassIcon className={`absolute ${dir === 'rtl' ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400`} />
+                  <input value={search} onChange={e => setSearch(e.target.value)} placeholder={t('searchPlaceholder')}
+                    className={`w-full ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-3.5 rounded-2xl bg-white text-gray-900 placeholder-gray-400 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-300 shadow-lg border border-gray-100`} />
+                </div>
+                <button type="submit" className="w-full sm:w-auto btn-accent py-3.5 px-6 rounded-2xl text-sm font-bold justify-center">{t('searchBtn')}</button>
+              </form>
+            </div>
+
+            {/* Right Column */}
+            <div className="w-full lg:w-1/2 hidden lg:flex justify-center items-center">
+              <div className="relative w-full max-w-lg">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-400/20 to-accent-400/15 rounded-3xl blur-2xl" />
+                <img
+                  src="/hero-cards.png"
+                  alt="CreaCarte Stationery Showcase"
+                  className="relative z-10 w-full h-auto object-contain rounded-3xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                />
               </div>
-              <button type="submit" className="w-full sm:w-auto btn-accent py-3.5 px-6 rounded-2xl text-sm font-bold justify-center">{t('searchBtn')}</button>
-            </form>
+            </div>
           </div>
         </div>
       </section>
