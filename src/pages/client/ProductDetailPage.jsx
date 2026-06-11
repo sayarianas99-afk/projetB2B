@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import api from '../../utils/api';
+import api, { resolveImageUrl } from '../../utils/api';
 import { useCart } from '../../context/CartContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { ShoppingCartIcon, MinusIcon, PlusIcon, TagIcon, ArchiveBoxIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
@@ -32,7 +32,9 @@ export default function ProductDetailPage() {
   );
   if (!product) return null;
 
-  const images = product.images?.length > 0 ? product.images : [{ imageUrl: `https://picsum.photos/seed/${product.id}/600/600` }];
+  const images = product.images?.length > 0
+    ? product.images.map(img => ({ ...img, imageUrl: resolveImageUrl(img.imageUrl) }))
+    : [{ imageUrl: `https://picsum.photos/seed/${product.id}/600/600` }];
   const isWholesale = qty >= product.wholesaleMinQty;
   const price = isWholesale ? parseFloat(product.wholesalePrice) : parseFloat(product.unitPrice);
   const total = price * qty;

@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { ShoppingCartIcon, TagIcon } from '@heroicons/react/24/outline';
 import { useCart } from '../../context/CartContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { resolveImageUrl } from '../../utils/api';
 import toast from 'react-hot-toast';
 
 export default function ProductCard({ product }) {
   const { addItem } = useCart();
   const { t, dir } = useLanguage();
-  const image = product.images?.[0]?.imageUrl || `https://picsum.photos/seed/${product.id}/400/400`;
+  const rawImage = product.images?.[0]?.imageUrl;
+  const image = rawImage ? resolveImageUrl(rawImage) : `https://picsum.photos/seed/${product.id}/400/400`;
 
   const handleAddToCart = (e) => {
     e.preventDefault();

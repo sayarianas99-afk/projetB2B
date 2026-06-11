@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../utils/api';
+import api, { resolveImageUrl } from '../../utils/api';
 import Pagination from '../../components/common/Pagination';
 import toast from 'react-hot-toast';
 import { PlusIcon, PencilIcon, TrashIcon, MagnifyingGlassIcon, CubeIcon } from '@heroicons/react/24/outline';
@@ -97,7 +97,7 @@ export default function AdminProducts() {
                   <td className="px-5 py-3.5">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl overflow-hidden bg-gray-100 dark:bg-dark-700 flex-shrink-0">
-                        <img src={p.images?.[0]?.imageUrl} alt="" className="w-full h-full object-cover"
+                        <img src={resolveImageUrl(p.images?.[0]?.imageUrl)} alt="" className="w-full h-full object-cover"
                           onError={e => { e.target.src = `https://picsum.photos/seed/${p.id}/80/80`; }} />
                       </div>
                       <div>

@@ -2,10 +2,15 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { resolveImageUrl } from '../../utils/api';
 import { TrashIcon, MinusIcon, PlusIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default function CartPage() {
-  const { items, updateQuantity, removeItem, total, clearCart } = useCart();
+  const items = useCart().items;
+  const updateQuantity = useCart().updateQuantity;
+  const removeItem = useCart().removeItem;
+  const total = useCart().total;
+  const clearCart = useCart().clearCart;
   const navigate = useNavigate();
   const { t, dir } = useLanguage();
 
@@ -35,7 +40,7 @@ export default function CartPage() {
           {items.map(item => (
             <div key={item.productId} className="card p-4 flex gap-4 items-start dark:bg-dark-800 dark:border-white/5">
               <div className="w-20 h-20 rounded-xl overflow-hidden bg-gray-100 dark:bg-dark-700 flex-shrink-0">
-                <img src={item.image} alt={item.name} className="w-full h-full object-cover"
+                <img src={resolveImageUrl(item.image)} alt={item.name} className="w-full h-full object-cover"
                   onError={e => { e.target.src = `https://picsum.photos/seed/${item.productId}/100/100`; }} />
               </div>
               <div className="flex-1 min-w-0">

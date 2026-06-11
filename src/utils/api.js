@@ -14,4 +14,13 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+export const resolveImageUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
+    return url;
+  }
+  const host = api.defaults.baseURL.replace(/\/api$/, '');
+  return `${host}${url.startsWith('/') ? '' : '/'}${url}`;
+};
+
 export default api;

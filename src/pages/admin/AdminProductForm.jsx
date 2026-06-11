@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import api from '../../utils/api';
+import api, { resolveImageUrl } from '../../utils/api';
 import toast from 'react-hot-toast';
 import { ArrowLeftIcon, PhotoIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
@@ -31,7 +31,7 @@ export default function AdminProductForm() {
           isFeatured: p.isFeatured, isActive: p.isActive,
         });
         if (p.images?.length) {
-          setImagePreviews(p.images.map(img => img.imageUrl));
+          setImagePreviews(p.images.map(img => resolveImageUrl(img.imageUrl)));
         }
       });
     }
