@@ -194,6 +194,15 @@ function setStorage(key, value) {
 let users = getStorage('users', defaultUsers);
 let categories = getStorage('categories', defaultCategories);
 let products = getStorage('products', defaultProducts);
+
+// Force reset local storage if it contains the old B2B category list
+if (categories.some(c => c.slug === 'electronics') || categories.length !== 7) {
+  localStorage.setItem(STORAGE_PREFIX + 'categories', JSON.stringify(defaultCategories));
+  localStorage.setItem(STORAGE_PREFIX + 'products', JSON.stringify(defaultProducts));
+  categories = defaultCategories;
+  products = defaultProducts;
+}
+
 let orders = getStorage('orders', []);
 
 export const mockDb = {
