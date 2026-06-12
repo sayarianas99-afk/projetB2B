@@ -33,7 +33,7 @@ export default function RegisterPage() {
     <div className={`min-h-screen flex hero-gradient hero-mesh items-center justify-center p-6 ${dir}`}>
       <div className="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8 sm:p-10 animate-slide-up">
         <div className="flex items-center gap-2 mb-6">
-          <img src="/logo.png" alt="CreaCarte" className="h-10 w-auto object-contain" />
+          <img src="/logo.png" alt="CreaCarte" className="h-12 w-auto object-contain" />
         </div>
         <h2 className="font-display text-2xl font-bold text-gray-900 mb-1">{t('registerTitle')}</h2>
         <p className="text-gray-500 text-sm mb-6">{t('registerSubtitle')}</p>

@@ -69,6 +69,7 @@ export default function AdminOrders() {
               <tr>
                 <th className="text-left px-5 py-3.5 font-semibold text-gray-600 dark:text-gray-400">Commande</th>
                 <th className="text-left px-4 py-3.5 font-semibold text-gray-600 dark:text-gray-400">Client</th>
+                <th className="text-left px-4 py-3.5 font-semibold text-gray-600 dark:text-gray-400">Articles</th>
                 <th className="text-left px-4 py-3.5 font-semibold text-gray-600 dark:text-gray-400 hidden md:table-cell">Date</th>
                 <th className="text-center px-4 py-3.5 font-semibold text-gray-600 dark:text-gray-400">Statut</th>
                 <th className="text-right px-4 py-3.5 font-semibold text-gray-600 dark:text-gray-400">Total</th>
@@ -78,10 +79,10 @@ export default function AdminOrders() {
             <tbody className="divide-y divide-gray-50 dark:divide-white/5">
               {loading ? Array(5).fill(0).map((_, i) => (
                 <tr key={i} className="animate-pulse">
-                  {[1,2,3,4,5,6].map(j => <td key={j} className="px-4 py-4"><div className="h-4 bg-gray-100 dark:bg-dark-700 rounded" /></td>)}
+                  {[1,2,3,4,5,6,7].map(j => <td key={j} className="px-4 py-4"><div className="h-4 bg-gray-100 dark:bg-dark-700 rounded" /></td>)}
                 </tr>
               )) : orders.length === 0 ? (
-                <tr><td colSpan={6} className="text-center py-12 text-gray-400 dark:text-gray-500">Aucune commande trouvée</td></tr>
+                <tr><td colSpan={7} className="text-center py-12 text-gray-400 dark:text-gray-500">Aucune commande trouvée</td></tr>
               ) : orders.map(o => (
                 <tr key={o.id} className="table-row-hover">
                   <td className="px-5 py-3.5">
@@ -91,6 +92,16 @@ export default function AdminOrders() {
                   <td className="px-4 py-3.5">
                     <div className="font-medium text-gray-900 dark:text-white">{o.customerName}</div>
                     <div className="text-xs text-gray-400 dark:text-gray-500 truncate max-w-[140px]">{o.customerEmail}</div>
+                  </td>
+                  <td className="px-4 py-3.5">
+                    <div className="text-xs space-y-1 max-w-[200px]">
+                      {o.items?.map((item, idx) => (
+                        <div key={idx} className="flex justify-between gap-2 text-gray-700 dark:text-gray-300">
+                          <span className="truncate font-medium">{item.productName}</span>
+                          <span className="font-bold text-primary-600 dark:text-primary-400 shrink-0">×{item.quantity}</span>
+                        </div>
+                      ))}
+                    </div>
                   </td>
                   <td className="px-4 py-3.5 text-gray-500 dark:text-gray-400 text-xs hidden md:table-cell">{new Date(o.createdAt).toLocaleDateString()}</td>
                   <td className="px-4 py-3.5 text-center"><StatusBadge status={o.status} /></td>

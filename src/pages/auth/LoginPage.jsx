@@ -38,7 +38,7 @@ export default function LoginPage() {
       <div className="hidden lg:flex lg:w-1/2 flex-col items-center justify-center p-12 text-white">
         <div className="max-w-md">
           <div className="flex items-center gap-3 mb-8">
-            <img src="/logo.png" alt="CreaCarte" className="h-12 w-auto object-contain brightness-0 invert" />
+            <img src="/logo.png" alt="CreaCarte" className="h-14 w-auto object-contain brightness-0 invert" />
           </div>
           <h1 className="font-display text-4xl font-bold mb-4 leading-tight">{t('loginSubtitle')}</h1>
           <p className="text-primary-200 text-lg leading-relaxed mb-8">{t('descText')}</p>
@@ -54,7 +54,7 @@ export default function LoginPage() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 relative z-10">
         <div className="w-full max-w-md glass-card rounded-3xl p-8 sm:p-10 shadow-premium border border-white/50 hover:shadow-glow transition-all duration-300 animate-slide-up">
           <div className="lg:hidden flex items-center gap-2 mb-6">
-            <img src="/logo.png" alt="CreaCarte" className="h-10 w-auto object-contain" />
+            <img src="/logo.png" alt="CreaCarte" className="h-12 w-auto object-contain" />
           </div>
 
           <h2 className="font-display text-2xl font-bold text-gray-900 mb-1">{t('loginWelcome')}</h2>

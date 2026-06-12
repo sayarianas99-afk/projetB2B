@@ -37,7 +37,7 @@ export default function ClientLayout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center h-16 gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img src="/logo.png" alt="CreaCarte" className="h-10 sm:h-12 w-auto object-contain" />
+            <img src="/logo.png" alt="CreaCarte" className="h-12 sm:h-14 w-auto object-contain" />
           </Link>
 
           {/* Search */}
@@ -145,7 +145,7 @@ export default function ClientLayout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="CreaCarte" className="h-10 w-auto object-contain brightness-0 invert" />
+              <img src="/logo.png" alt="CreaCarte" className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed">{t('descText')}</p>
             
