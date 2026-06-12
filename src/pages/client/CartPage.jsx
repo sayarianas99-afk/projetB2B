@@ -49,7 +49,7 @@ export default function CartPage() {
                   {item.name}
                 </Link>
                 <div className="flex items-center gap-3 mt-1">
-                  <span className="text-primary-600 font-bold dark:text-primary-400">${item.price.toFixed(2)}</span>
+                  <span className="text-primary-600 font-bold dark:text-primary-400">{item.price.toFixed(2)} DT</span>
                   {item.quantity >= item.wholesaleMinQty && (
                     <span className="badge bg-accent-100 text-accent-600 text-xs dark:bg-accent-950/40 dark:text-accent-400">
                       {t('wholesaleApplied')}
@@ -71,7 +71,7 @@ export default function CartPage() {
                     </button>
                   </div>
                   <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
-                    <span className="font-bold text-gray-900 dark:text-white">${(item.price * item.quantity).toFixed(2)}</span>
+                    <span className="font-bold text-gray-900 dark:text-white">{(item.price * item.quantity).toFixed(2)} DT</span>
                     <button onClick={() => removeItem(item.productId)}
                       className="p-1.5 rounded-lg text-red-400 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/20 transition-colors">
                       <TrashIcon className="w-4 h-4" />
@@ -91,14 +91,14 @@ export default function CartPage() {
               {items.map(item => (
                 <div key={item.productId} className="flex justify-between text-gray-600 dark:text-gray-400">
                   <span className="truncate max-w-[160px]">{item.name} ×{item.quantity}</span>
-                  <span className="font-medium dark:text-gray-300">${(item.price * item.quantity).toFixed(2)}</span>
+                  <span className="font-medium dark:text-gray-300">{(item.price * item.quantity).toFixed(2)} DT</span>
                 </div>
               ))}
             </div>
             <div className="border-t border-gray-100 dark:border-white/5 pt-3 mb-4">
               <div className="flex justify-between items-center">
                 <span className="font-semibold text-gray-700 dark:text-gray-300">{t('subtotal')}</span>
-                <span className="font-display text-xl font-bold text-gray-900 dark:text-white">${total.toFixed(2)}</span>
+                <span className="font-display text-xl font-bold text-gray-900 dark:text-white">{total.toFixed(2)} DT</span>
               </div>
             </div>
             <button onClick={() => navigate('/checkout')} className="btn-primary w-full justify-center py-3">

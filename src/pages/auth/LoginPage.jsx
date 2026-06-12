@@ -38,10 +38,7 @@ export default function LoginPage() {
       <div className="hidden lg:flex lg:w-1/2 flex-col items-center justify-center p-12 text-white">
         <div className="max-w-md">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center">
-              <BuildingStorefrontIcon className="w-6 h-6 text-white" />
-            </div>
-            <span className="font-display font-bold text-2xl">CreaCarte</span>
+            <img src="/logo.png" alt="CreaCarte" className="h-12 w-auto object-contain brightness-0 invert" />
           </div>
           <h1 className="font-display text-4xl font-bold mb-4 leading-tight">{t('loginSubtitle')}</h1>
           <p className="text-primary-200 text-lg leading-relaxed mb-8">{t('descText')}</p>
@@ -57,10 +54,7 @@ export default function LoginPage() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 relative z-10">
         <div className="w-full max-w-md glass-card rounded-3xl p-8 sm:p-10 shadow-premium border border-white/50 hover:shadow-glow transition-all duration-300 animate-slide-up">
           <div className="lg:hidden flex items-center gap-2 mb-6">
-            <div className="w-8 h-8 bg-primary-600 rounded-xl flex items-center justify-center">
-              <BuildingStorefrontIcon className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-display font-bold text-xl text-primary-950">CreaCarte</span>
+            <img src="/logo.png" alt="CreaCarte" className="h-10 w-auto object-contain" />
           </div>
 
           <h2 className="font-display text-2xl font-bold text-gray-900 mb-1">{t('loginWelcome')}</h2>

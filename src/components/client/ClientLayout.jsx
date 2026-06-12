@@ -36,11 +36,8 @@ export default function ClientLayout() {
       <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm dark:bg-dark-800 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center h-16 gap-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center shadow-glow">
-              <BuildingStorefrontIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
-            </div>
-            <span className="font-display font-bold text-base sm:text-xl text-gray-900 dark:text-white">Crea<span className="text-primary-600">Carte</span></span>
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img src="/logo.png" alt="CreaCarte" className="h-10 sm:h-12 w-auto object-contain" />
           </Link>
 
           {/* Search */}
@@ -148,10 +145,7 @@ export default function ClientLayout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary-600 rounded-xl flex items-center justify-center">
-                <BuildingStorefrontIcon className="w-4 h-4 text-white" />
-              </div>
-              <span className="font-display font-bold text-white text-lg">CreaCarte</span>
+              <img src="/logo.png" alt="CreaCarte" className="h-10 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed">{t('descText')}</p>
             

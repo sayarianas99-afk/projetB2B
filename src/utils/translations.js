@@ -1,7 +1,7 @@
 export const translations = {
   fr: {
     // Topbar & Header & Footer
-    freeShipping: "Livraison gratuite pour toute commande supérieure à 500 $",
+    freeShipping: "Livraison gratuite pour toute commande supérieure à 500 DT",
     wholesaleHotline: "Ligne directe de vente en gros : ",
     searchPlaceholder: "Rechercher des produits, des catégories...",
     searchBtn: "Rechercher",
@@ -38,7 +38,7 @@ export const translations = {
     heroDesc: "Accédez à des milliers de produits de qualité supérieure aux tarifs de gros les plus bas. Qualité garantie, livraison rapide.",
     trustedBy: "🌍 Approuvé par plus de 50 000 entreprises",
     businessesStat: "50K+ Entreprises",
-    volumeStat: "+2 Mds $ Volume d'affaires",
+    volumeStat: "+2 Mds DT Volume d'affaires",
     shippingStat: "Livraison rapide",
     suppliersStat: "Fournisseurs certifiés",
     limitedOffer: "OFFRE À DURÉE LIMITÉE",
@@ -66,7 +66,7 @@ export const translations = {
     sortPriceHighLow: "Price : du plus cher au moins cher",
     sortNameAZ: "Nom : A à Z",
     minQty: "Min. Qty :",
-    stock: "Stock :",
+    stock: "Commande :",
     unit: "unité",
     wholesale: "gros",
     noProductsFound: "Aucun produit trouvé",
@@ -160,7 +160,7 @@ export const translations = {
   },
   ar: {
     // Topbar & Header & Footer
-    freeShipping: "شحن مجاني للطلبات الأكثر من 500 دولار",
+    freeShipping: "شحن مجاني للطلبات الأكثر من 500 دينار",
     wholesaleHotline: "الخط الساخن للجملة: ",
     searchPlaceholder: "ابحث عن المنتجات، الأقسام...",
     searchBtn: "بحث",
@@ -197,7 +197,7 @@ export const translations = {
     heroDesc: "احصل على آلاف المنتجات المميزة بأسعار الجملة الأكثر انخفاضاً. جودة مضمونة وشحن سريع.",
     trustedBy: "🌍 موثوق من أكثر من 50,000 شركة",
     businessesStat: "50 ألف+ شركة",
-    volumeStat: "+2 مليار دولار حجم التداول",
+    volumeStat: "+2 مليار دينار حجم التداول",
     shippingStat: "شحن سريع وآمن",
     suppliersStat: "موردون موثقون",
     limitedOffer: "عرض لفترة محدودة",
@@ -225,7 +225,7 @@ export const translations = {
     sortPriceHighLow: "السعر: من الأعلى للأقل",
     sortNameAZ: "الاسم: من الألف إلى الياء",
     minQty: "الحد الأدنى للطلب:",
-    stock: "المخزون:",
+    stock: "الطلب:",
     unit: "قطعة",
     wholesale: "جملة",
     noProductsFound: "لم يتم العثور على منتجات",

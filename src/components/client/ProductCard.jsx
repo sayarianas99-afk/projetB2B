@@ -68,11 +68,11 @@ export default function ProductCard({ product }) {
           <div className="flex items-end justify-between gap-2">
             <div>
               <div className="text-xs text-gray-400 mb-0.5">{t('unitPrice')}</div>
-              <div className="font-bold text-gray-900 dark:text-white">${parseFloat(product.unitPrice).toFixed(2)}</div>
+              <div className="font-bold text-gray-900 dark:text-white">{parseFloat(product.unitPrice).toFixed(2)} DT</div>
             </div>
             <div className="text-end">
               <div className="text-xs text-accent-500 font-medium mb-0.5">{product.wholesaleMinQty}+ {t('unit')}</div>
-              <div className="font-bold text-accent-500">${parseFloat(product.wholesalePrice).toFixed(2)}</div>
+              <div className="font-bold text-accent-500">{parseFloat(product.wholesalePrice).toFixed(2)} DT</div>
             </div>
           </div>
           <div className="mt-3 pt-2.5 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">

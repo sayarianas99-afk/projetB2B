@@ -94,16 +94,16 @@ export default function CheckoutPage() {
                   <div key={item.productId} className="flex justify-between text-sm">
                     <div>
                       <div className="text-gray-700 dark:text-gray-300 truncate max-w-[150px] font-medium">{item.name}</div>
-                      <div className="text-gray-400 text-xs">{item.quantity}× @ ${item.price.toFixed(2)}</div>
+                      <div className="text-gray-400 text-xs">{item.quantity}× @ {item.price.toFixed(2)} DT</div>
                     </div>
-                    <span className="font-semibold text-gray-800 dark:text-white">${(item.price * item.quantity).toFixed(2)}</span>
+                    <span className="font-semibold text-gray-800 dark:text-white">{(item.price * item.quantity).toFixed(2)} DT</span>
                   </div>
                 ))}
               </div>
               <div className="border-t border-gray-100 dark:border-white/5 pt-3 mb-5">
                 <div className="flex justify-between items-center">
                   <span className="font-semibold text-gray-700 dark:text-gray-300">{t('total')}</span>
-                  <span className="font-display text-xl font-bold text-gray-900 dark:text-white">${total.toFixed(2)}</span>
+                  <span className="font-display text-xl font-bold text-gray-900 dark:text-white">{total.toFixed(2)} DT</span>
                 </div>
               </div>
               <button type="submit" disabled={loading} className="btn-primary w-full justify-center py-3">

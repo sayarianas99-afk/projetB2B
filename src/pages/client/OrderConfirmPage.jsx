@@ -37,13 +37,13 @@ export default function OrderConfirmPage() {
               {order.items?.map(item => (
                 <div key={item.id} className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
                   <span>{item.productName} ×{item.quantity}</span>
-                  <span className="font-medium">${parseFloat(item.totalPrice).toFixed(2)}</span>
+                  <span className="font-medium">{parseFloat(item.totalPrice).toFixed(2)} DT</span>
                 </div>
               ))}
             </div>
             <div className="border-t border-gray-200 dark:border-white/5 mt-3 pt-3 flex justify-between font-bold text-gray-900 dark:text-white">
               <span>{t('total')}</span>
-              <span>${parseFloat(order.totalAmount).toFixed(2)}</span>
+              <span>{parseFloat(order.totalAmount).toFixed(2)} DT</span>
             </div>
           </div>
         )}

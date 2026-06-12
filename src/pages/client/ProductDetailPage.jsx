@@ -89,18 +89,18 @@ export default function ProductDetailPage() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className={`p-2.5 sm:p-3 rounded-xl border-2 transition-all ${!isWholesale ? 'border-primary-500 bg-white shadow-sm dark:bg-dark-700' : 'border-gray-200 dark:border-white/10'}`}>
                 <div className="text-xs text-gray-500 font-medium mb-1 dark:text-gray-400">{t('unitPrice')}</div>
-                <div className="font-display text-base sm:text-xl font-bold text-gray-900 dark:text-white">${parseFloat(product.unitPrice).toFixed(2)}</div>
+                <div className="font-display text-base sm:text-xl font-bold text-gray-900 dark:text-white">{parseFloat(product.unitPrice).toFixed(2)} DT</div>
                 <div className="text-xs text-gray-400">{t('unit')}</div>
               </div>
               <div className={`p-2.5 sm:p-3 rounded-xl border-2 transition-all ${isWholesale ? 'border-accent-400 bg-white shadow-sm dark:bg-dark-700' : 'border-gray-200 dark:border-white/10'}`}>
                 <div className="text-xs text-accent-500 font-semibold mb-1">🔥 {t('wholesalePrice')}</div>
-                <div className="font-display text-base sm:text-xl font-bold text-accent-600 dark:text-accent-400">${parseFloat(product.wholesalePrice).toFixed(2)}</div>
+                <div className="font-display text-base sm:text-xl font-bold text-accent-600 dark:text-accent-400">{parseFloat(product.wholesalePrice).toFixed(2)} DT</div>
                 <div className="text-xs text-gray-400">{product.wholesaleMinQty}+ {t('unit')}</div>
               </div>
             </div>
             {isWholesale && (
               <div className="mt-3 p-2 bg-accent-50 rounded-lg text-xs text-accent-700 font-medium text-center dark:bg-accent-950/30 dark:text-accent-400">
-                🎉 {t('wholesaleApplied')} {t('savePerUnit', [`$${((parseFloat(product.unitPrice) - parseFloat(product.wholesalePrice))).toFixed(2)}`])}
+                🎉 {t('wholesaleApplied')} {t('savePerUnit', [`${((parseFloat(product.unitPrice) - parseFloat(product.wholesalePrice))).toFixed(2)} DT`])}
               </div>
             )}
           </div>
@@ -139,7 +139,7 @@ export default function ProductDetailPage() {
           {/* Total */}
           <div className="flex items-center justify-between py-3 border-t border-gray-100 dark:border-white/5">
             <span className="text-sm text-gray-600 font-medium dark:text-gray-400">{t('subtotal')}</span>
-            <span className="font-display text-2xl font-bold text-gray-900 dark:text-white">${total.toFixed(2)}</span>
+            <span className="font-display text-2xl font-bold text-gray-900 dark:text-white">{total.toFixed(2)} DT</span>
           </div>
 
           {/* Actions */}
