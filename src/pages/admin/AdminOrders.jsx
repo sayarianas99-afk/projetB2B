@@ -94,11 +94,13 @@ export default function AdminOrders() {
                     <div className="text-xs text-gray-400 dark:text-gray-500 truncate max-w-[140px]">{o.customerEmail}</div>
                   </td>
                   <td className="px-4 py-3.5">
-                    <div className="text-xs space-y-1 max-w-[200px]">
+                    <div className="space-y-1 max-w-[200px]">
                       {o.items?.map((item, idx) => (
-                        <div key={idx} className="flex justify-between gap-2 text-gray-700 dark:text-gray-300">
-                          <span className="truncate font-medium">{item.productName}</span>
-                          <span className="font-bold text-primary-600 dark:text-primary-400 shrink-0">×{item.quantity}</span>
+                        <div key={idx} className="text-xs text-gray-600 dark:text-gray-400 truncate flex items-center gap-1.5" title={item.productName}>
+                          <span className="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-primary-50 dark:bg-primary-950/50 text-primary-700 dark:text-primary-350 text-[10px] font-bold min-w-[20px]">
+                            {item.quantity}
+                          </span>
+                          <span className="truncate">{item.productName}</span>
                         </div>
                       ))}
                     </div>
